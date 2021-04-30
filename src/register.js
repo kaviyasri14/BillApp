@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import firebase from "./config/FirebaseConfig";
 import Spinner from "react-bootstrap/Spinner";
+import { Col} from "react-bootstrap";
 // import { faHome } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -24,12 +25,10 @@ function Register(props) {
   };
   return (
     <div className="loginpage">
-      {/* <Link to="/">
-        <FontAwesomeIcon icon={faHome} className="iconhome" />
-      </Link> */}
+    <div className="loginContainer">
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Form.Row>
-          <Form.Group md="4" controlId="validationCustom01">
+      <Col xs={4} >    <Form.Group controlId="validationCustom01">
             <Form.Label>First name</Form.Label>
             <Form.Control
               required
@@ -41,10 +40,11 @@ function Register(props) {
               }}
             />
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          </Form.Group>
+          </Form.Group> </Col>
         </Form.Row>
         <Form.Row>
-          <Form.Group md="4" controlId="validationCustom02">
+        <Col xs={4} > 
+          <Form.Group  controlId="validationCustom02">
             <Form.Label>Email ID</Form.Label>
             <Form.Control
               required
@@ -57,8 +57,10 @@ function Register(props) {
             />
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group>
+          </Col>
         </Form.Row>
         <Form.Row>
+        <Col xs={4} > 
           <Form.Group md="4" controlId="validationCustom02">
             <Form.Label>Password</Form.Label>
             <Form.Control
@@ -73,10 +75,13 @@ function Register(props) {
             />
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group>
+          </Col>
         </Form.Row>
+        
         <Button
           type="submit"
           disabled={creating}
+   
           onClick={(e) => {
             signUp(e);
           }}
@@ -95,6 +100,7 @@ function Register(props) {
           {creating ? "Creating.." : "Create Account"}
         </Button>
       </Form>
+      </div>
     </div>
   );
   async function signUp(e) {

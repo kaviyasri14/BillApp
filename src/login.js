@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import firebase from "./config/FirebaseConfig";
 import Spinner from "react-bootstrap/Spinner";
 import Toast from "react-bootstrap/Toast";
+import { Col} from "react-bootstrap";
 // import { faHome } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { Link } from "react-router-dom";
@@ -26,40 +27,43 @@ function Login(props) {
   };
   return (
     <div className="loginpage">
-      <Toast
-        onClose={() => setShowError(false)}
-        show={showError}
-        delay={3000}
-        autohide
-      >
-        <Toast.Header>
-          <strong className="mr-auto">Error!</strong>
-        </Toast.Header>
-        <Toast.Body>{errordesc}</Toast.Body>
-      </Toast>
-      {/* <Link to="/">
-        <FontAwesomeIcon icon={faHome} className="iconhome" />
-      </Link> */}
-      <Form noValidate validated={validated} onSubmit={handleSubmit}>
+      <div className="loginContainer">
+        <Toast
+          onClose={() => setShowError(false)}
+          show={showError}
+          delay={3000}
+          autohide
+        >
+          <Toast.Header>
+            <strong className="mr-auto">Error!</strong>
+          </Toast.Header>
+          <Toast.Body>{errordesc}</Toast.Body>
+        </Toast>
+        {/* <Link to="/">
+          <FontAwesomeIcon icon={faHome} className="iconhome" />
+        </Link> */}
+        <Form noValidate validated={validated} onSubmit={handleSubmit}>
+
+
         <Form.Row>
-          <Form.Group md="4" controlId="validationCustom02">
-            <Form.Label>Email ID</Form.Label>
-            <Form.Control
+          {/* <Form.Group controlId="validationCustom02"> */}
+        <Col xs={1} >  <Form.Label>Email ID</Form.Label></Col>  
+        <Col xs={4}>       <Form.Control
               required
               type="email"
-              placeholder="email"
+              placeholder="Email"
               value={email}
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
-            />
+            />   </Col>         
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          </Form.Group>
+          {/* </Form.Group> */}
         </Form.Row>
         <Form.Row>
-          <Form.Group md="4" controlId="validationCustom02">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
+          {/* <Form.Group  controlId="validationCustom02"> */}
+          <Col xs={1}>  <Form.Label>Password</Form.Label></Col>
+        <Col xs={4}>    <Form.Control
               required
               minLength="6"
               type="password"
@@ -68,9 +72,9 @@ function Login(props) {
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
-            />
+            /> </Col>
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          </Form.Group>
+          {/* </Form.Group> */}
         </Form.Row>
         <Button
           type="submit"
@@ -93,6 +97,7 @@ function Login(props) {
           {logging ? "logging.." : "Let me in"}
         </Button>
       </Form>
+      </div>      
     </div>
   );
   async function login(e) {
