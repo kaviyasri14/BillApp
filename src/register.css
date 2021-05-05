@@ -7,9 +7,15 @@
     left: 0;
     right: 0;
     margin: auto;
+    background-image: url("./images/login.jpg");
+
 }
 .submitButton{
     display: flex;
     align-items: center;
     justify-content: center;
 }
+.registerPage{
+
+}
+
