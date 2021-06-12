@@ -14,7 +14,8 @@ export default class Report extends Component {
         super(props)
         this.state = {
             seletedArea: 3, areas: [], shops: [], endDate: new Date(),
-            startDate: new Date(), dataLoaded: false,formatedBill: []
+            startDate: new Date(), dataLoaded: false,formatedBill: [],
+            reportType: ''
         }
         this.updateShops = this.updateShops.bind(this)
         this.fetchResults = this.fetchResults.bind(this)
@@ -35,9 +36,10 @@ export default class Report extends Component {
         }, () => { this.setState({ dataLoaded: true }) })
     }
     fetchResults(type) {
-        this.setState({formatedBill:[]},()=>{
+        this.setState({formatedBill:[],reportType:type},()=>{
             let regex = new RegExp('^' + this.state.selectedArea + '_')
             let bills = []
+            let resultbill = []
             console.log(moment(this.state.startDate).format("DD/MM/YYYY"));
             console.log(moment(this.state.endDate).format("DD/MM/YYYY"));
             console.log("area data", this.state.areas);
@@ -66,9 +68,10 @@ export default class Report extends Component {
                     }
                     console.log(obj)
                     if(Object.keys(obj).length){
-                        this.setState({formatedBill:[...this.state.formatedBill,obj]},()=>{console.log(this.state.formatedBill)})
+                        resultbill.push(obj)
                     }
                 }
+            this.setState({formatedBill:resultbill},()=>{console.log(this.state.formatedBill)})
             }
         })
     }
@@ -147,8 +150,8 @@ export default class Report extends Component {
                 <thead>
                     <tr>
                     <th>S.No.</th>
-                    <th>Debit Amount</th>
-                    <th>Debit Date</th>
+                    <th>{this.state.reportType == 'debit' ? 'Debit' : 'Included'} Amount</th>
+                    <th>{this.state.reportType == 'debit' ? 'Debit' : 'Created'} Date</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -156,8 +159,8 @@ export default class Report extends Component {
                         return(
                             <tr key = {id}>
                             <td>{id+1}</td>
-                            <td>{x.amount}</td>
-                            <td>{x.debitDate}</td>          
+                            <td>{this.state.reportType == 'debit' ? x.amount : x.billAmount}</td>
+                            <td>{this.state.reportType == 'debit' ? x.debitDate : x.modifiedDate}</td>          
                         </tr>
                         )
                     })} 
