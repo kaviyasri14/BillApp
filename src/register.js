@@ -8,7 +8,7 @@ import { Col} from "react-bootstrap";
 import "./register.css"
 // import { faHome } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import './register.css';
 function Register(props) {
   const [validated, setValidated] = useState(false);
   const [userName, setUserName] = useState("");
@@ -29,6 +29,7 @@ function Register(props) {
     <div className="registerContainer">
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
 
+
       <Col>    <Form.Group controlId="validationCustom01">
             <Form.Label>First name</Form.Label>
             <Form.Control
@@ -42,8 +43,6 @@ function Register(props) {
             />
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group> </Col>
-       
-  
         <Col> 
           <Form.Group  controlId="validationCustom02">
             <Form.Label>Email ID</Form.Label>
@@ -59,7 +58,6 @@ function Register(props) {
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group>
           </Col>
-       
         <Col> 
           <Form.Group controlId="validationCustom02">
             <Form.Label>Password</Form.Label>
@@ -75,13 +73,12 @@ function Register(props) {
             />
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group>
-          </Col>
-      
+          </Col>      
        <div class="submitButton">
         <Button
           type="submit"
           disabled={creating}
-   
+          className="submitButton"
           onClick={(e) => {
             signUp(e);
           }}
