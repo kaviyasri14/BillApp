@@ -1,5 +1,5 @@
 .homepage{
-  background-image: url("./images/elegant-template-3d-lace-paper-260nw-686843488.webp");
+  background-image: url("./images/homebg.jpg");
   position:fixed;
     padding:0;
     margin:0;
@@ -17,9 +17,9 @@
     
 }
 
-.loginpage{
+/* .loginpage{
  
-    /* background-image: url("./images/login.jpg"); */
+    background-image: url("./images/login.jpg");
     position:fixed;
       padding:0;
       margin:0;
@@ -34,7 +34,7 @@
       background-size: cover;
       
 
-}
+} */
 
 .buttons{
   margin: 3%;

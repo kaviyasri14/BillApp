@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import './App.css';
+import './homepage.css';
 import Logo from "./images/logo-removebg-preview.png";
 import { useHistory } from "react-router-dom";
 

@@ -5,6 +5,7 @@ import firebase from "./config/FirebaseConfig";
 import Spinner from "react-bootstrap/Spinner";
 import Toast from "react-bootstrap/Toast";
 import { Col} from "react-bootstrap";
+import "./login.css"
 // import { faHome } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { Link } from "react-router-dom";
@@ -42,13 +43,15 @@ function Login(props) {
         {/* <Link to="/">
           <FontAwesomeIcon icon={faHome} className="iconhome" />
         </Link> */}
+        <h1>Login</h1>
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
-
-
         <Form.Row>
           {/* <Form.Group controlId="validationCustom02"> */}
-        <Col xs={1} >  <Form.Label>Email ID</Form.Label></Col>  
-        <Col xs={4}>       <Form.Control
+        {/* <Col xs={1} >  <Form.Label>Email ID</Form.Label></Col>   */}
+        <Col xs={4} className = "textbox">    
+        <i class="fas fa-user"></i>
+           <Form.Control
+           className ="email"
               required
               type="email"
               placeholder="Email"
@@ -62,8 +65,11 @@ function Login(props) {
         </Form.Row>
         <Form.Row>
           {/* <Form.Group  controlId="validationCustom02"> */}
-          <Col xs={1}>  <Form.Label>Password</Form.Label></Col>
-        <Col xs={4}>    <Form.Control
+          {/* <Col xs={1}>  <Form.Label>Password</Form.Label></Col> */}
+        <Col xs={4} className = "textbox"> 
+        <i class="fas fa-lock"></i>
+           <Form.Control
+           className ="password"
               required
               minLength="6"
               type="password"
@@ -76,7 +82,12 @@ function Login(props) {
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           {/* </Form.Group> */}
         </Form.Row>
+        <Form.Row>
+          <Col xs={4}>
         <Button
+        className = "btn"
+        variant="success"
+        // variant="outline-success"
           type="submit"
           disabled={logging}
           onClick={(e) => {
@@ -96,6 +107,9 @@ function Login(props) {
           )}
           {logging ? "logging.." : "Let me in"}
         </Button>
+        </Col>
+        </Form.Row>
+        
       </Form>
       </div>      
     </div>
