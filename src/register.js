@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import firebase from "./config/FirebaseConfig";
 import Spinner from "react-bootstrap/Spinner";
 import { Col} from "react-bootstrap";
+import "./register.css"
 // import { faHome } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './register.css';
@@ -27,8 +28,9 @@ function Register(props) {
     <div className="registerPage">
     <div className="registerContainer">
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
-        {/* <Form.Row> */}
-      <Col >    <Form.Group controlId="validationCustom01">
+
+
+      <Col>    <Form.Group controlId="validationCustom01">
             <Form.Label>First name</Form.Label>
             <Form.Control
               required
@@ -41,9 +43,7 @@ function Register(props) {
             />
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group> </Col>
-        {/* </Form.Row> */}
-        {/* <Form.Row> */}
-        <Col > 
+        <Col> 
           <Form.Group  controlId="validationCustom02">
             <Form.Label>Email ID</Form.Label>
             <Form.Control
@@ -58,9 +58,7 @@ function Register(props) {
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group>
           </Col>
-        {/* </Form.Row> */}
-        {/* <Form.Row> */}
-        <Col > 
+        <Col> 
           <Form.Group controlId="validationCustom02">
             <Form.Label>Password</Form.Label>
             <Form.Control
@@ -75,9 +73,8 @@ function Register(props) {
             />
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group>
-          </Col>
-        {/* </Form.Row> */}
-        <Col>
+          </Col>      
+       <div class="submitButton">
         <Button
           type="submit"
           disabled={creating}
@@ -98,7 +95,8 @@ function Register(props) {
             ""
           )}
           {creating ? "Creating.." : "Create Account"}
-        </Button></Col>
+        </Button>
+        </div>
       </Form>
       </div>
     </div>
